@@ -32,10 +32,19 @@
                 </div>
             </div>
             <div class="cta-container">
-                <div class="cta">My Resumé</div>
-                <div class="cta">Read On</div>
+                <button class="cta" onclick="location.href = './images/Sudev.pdf'">My Resumé</button>
+                <button class="cta" onclick="document.getElementById('about-me').scrollIntoView()">About Me</button>
             </div>
+        </div>
+        <div id="about-me">
+            Updated About Page Under Construction
         </div>
     </div>
 </body>
+<script>
+    window.onload = function(){
+        document.getElementsByClassName('card')[0].id = 'ascend';
+        document.getElementsByClassName('cta-container')[0].id = 'softpop';
+    }
+</script>
 </html>

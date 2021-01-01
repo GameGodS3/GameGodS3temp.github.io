@@ -3,6 +3,7 @@
     --pri:#0d131f;
     --sec:#e6eaf2;
     --acc:#153333;
+    scroll-behavior: smooth;
 }
 
 /*Font vars*/
@@ -25,14 +26,36 @@
     font-display: swap;
 }
 
+/*Animations*/
+@keyframes ascend{
+    from{margin-top: 20px; opacity: 0;}
+    to{margin-top: 0; opacity: 1;}
+}
+@keyframes softpop{
+    from{transform: scale(0.8); opacity: 0;}
+    to{transform: scale(1); opacity: 1;}
+}
+#ascend{
+    animation: ascend .5s forwards;
+    animation-delay: .5s;
+}
+#softpop{
+    animation: softpop .5s forwards;
+    animation-delay: 1s;
+}
+
+
+
 /*background and particles*/
 body{
     margin: 0;
-    overflow: hidden;
+    overflow-x: hidden;
     padding: 0;
     width: auto;
     background-color: var(--pri);
+    font-family: "Montserrat";
 }
+
 
 #landing{
     display: flex;
@@ -123,6 +146,9 @@ body{
     background-clip: padding-box;
     box-shadow: #0000002d 1px 1px 50px;
     padding: 20px;
+    /*for animation*/
+    margin-top: 20px;
+    opacity: 0;
     }
 
 .dp{
@@ -155,9 +181,14 @@ body{
 .cta-container{
     display:flex;
     margin: 10px;
+    /*for animation*/
+    transform: scale(0.8);
+    opacity: 0;
 }
 
 .cta{
+    border: none;
+    outline: none;
     font-family: "Montserrat";
     font-weight: normal;
     font-size: 14px;
@@ -166,8 +197,44 @@ body{
     padding: 12px;
     border-radius: 5px;
     margin: 5px;
+    color: var(--sec);
+    cursor: pointer;
     box-shadow: #000000a4 2px 2px 50px;
+    transition: box-shadow, background-color .25s;
+    -webkit-tap-highlight-color: transparent;
+    
 }
+
+
+/*Hover Classes reserved for non-touch devices*/
+@media (hover:hover) and (pointer: fine){
+    .cta:hover{
+        background-color: #112b2b;
+        box-shadow: #000000c5 8px 8px 5px;
+        transition: all .25s;
+    }
+}
+
+.cta:active{
+    background-color: #0d2323;
+    box-shadow: #000000c5 1px 1px 5px;
+    transition: all .1s;
+}
+
+/*About Section*/
+#about-me{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: var(--sec);
+    padding: 5% 20%;
+}
+
+
+
+
 
 /** For mobile devices **/
 @media (max-width: 767px) {
