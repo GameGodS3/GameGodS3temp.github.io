@@ -11,9 +11,23 @@
 </head>
 <body>
     <div class="page-base">
+        <div class="contact-sidebar">
+            <div class="social-icons-container">
+                <div class="social-icon"><a href="https://github.com/gamegods3"><img src="./images/github.svg" alt="GitHub"></a></div>
+                <div class="social-icon"><a href="https://linkedin.com/in/sudevssuresh"><img src="./images/linkedin.svg" alt="LinkedIn"></a></div>
+                <div class="social-icon"><a href="https://twitter.com/sudevssuresh"><img src="./images/twitter.svg" alt="Twitter"></a></div>
+                <div class="social-icon"><a href="https://instagram.com/card.shark.11"><img src="./images/instagram.svg" alt="Instagram"></a></div>
+            </div>
+            <a href="mailto:sudevssuresh@gmail.com" style="text-decoration: none;">
+                <div class="email">
+                    sudevssuresh@gmail.com
+                </div>
+            </a>
+        </div>
+       
         <div id="landing">
             <div class="card">
-                <div class="dp"></div>
+                <a href="https://github.com/gamegods3"><div class="dp"></div></a>
                 <div class="name">Sudev Suresh Sreedevi</div>
                 <div class="bio">UI/UX Designer, Web Developer,<br>
                     Microsoft Learn Student Ambassador,<br>
@@ -37,14 +51,77 @@
             </div>
         </div>
         <div id="about-me">
-            Updated About Page Under Construction
+            <div class="circle smallcircle"></div>
+            <div class="circle largecircle"></div>
+            <div class="about">
+                <h4 class="about-title">About Me</h4>
+                <h1 class="emphasis">
+                    I design <br><thicc>User Interfaces</thicc> <br>for <thicc>Websites</thicc> and <thicc>Mobile Apps</thicc>.
+                </h1>
+                <h4 class="about-title">My Tech Stack</h4>
+                <div class="techstack-container">
+                    <div class="techstack">
+                        <img src="./images/html.png" alt="HTML">
+                        <div class="techstack-text">HTML</div>
+                    </div>
+                    <div class="techstack">
+                        <img src="./images/css.png" alt="CSS">
+                        <div class="techstack-text">CSS</div>
+                    </div>
+                    <div class="techstack">
+                        <img src="./images/js.png" alt="JavaScript">
+                        <div class="techstack-text">JS</div>
+                    </div>
+                    <div class="techstack">
+                        <img src="./images/react.png" alt="ReactJS">
+                        <div class="techstack-text">React</div>
+                    </div>
+                    <div class="techstack">
+                        <img src="./images/python.png" alt="Python">
+                        <div class="techstack-text">Python</div>
+                    </div>
+                    <div class="techstack">
+                        <img src="./images/django.png" alt="Django">
+                        <div class="techstack-text">Django</div>
+                    </div>
+                </div>
+            </div>
         </div>
+    </div> 
+    <div class="scrolltotop" onclick="document.documentElement.scrollTop = 0; document.body.scrollTop=0;">
+            &uarr;
     </div>
 </body>
 <script>
     window.onload = function(){
         document.getElementsByClassName('card')[0].id = 'ascend';
         document.getElementsByClassName('cta-container')[0].id = 'softpop';
+        document.querySelector('.contact-sidebar').id = 'ascend';
+    }
+
+    //About elements
+    const about_container = document.querySelector('#about-me');
+    const emphasis = document.querySelector('.emphasis');
+    const circles = document.querySelectorAll('.circle');
+
+    //Scroll to top
+    var scrlltopbtn = document.getElementsByClassName('scrolltotop')[0];
+    
+    window.onscroll = function() {scrollFunction()};
+    var screenheight = this.screen.height;
+    function scrollFunction() {
+        var abouttop = parseInt(about_container.getBoundingClientRect().top);
+        if(abouttop < screenheight/2){
+            scrlltopbtn.style.display = "block";
+            scrlltopbtn.style.opacity = (-1*abouttop)/50;
+            emphasis.classList.add('settle');
+            circles.forEach(element => {
+                element.id = 'ascend';
+            });
+        }
+        else{
+            scrlltopbtn.style.display = "none";
+        }
     }
 </script>
 </html>
