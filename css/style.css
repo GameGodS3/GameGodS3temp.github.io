@@ -49,8 +49,8 @@
     to{margin-top: 0; opacity: 1;}
 }
 @keyframes settle{
-    from{margin-left: 15px; opacity: 0;}
-    to{margin-left: 0; opacity: 1;}
+    from{transform: translate(15px); opacity: 0;}
+    to{transform: translate(0); opacity: 1;}
 }
 @keyframes softpop{
     from{transform: scale(0.8); opacity: 0;}
@@ -382,7 +382,7 @@ body{
     line-height: 3rem;
     font-size: 2.5rem;
     /*For animation*/
-    margin-left: 15px;
+    transform: translate(15px);
     opacity: 0;
 }
 
@@ -394,13 +394,17 @@ thicc{
 .techstack-container{
     display: flex;
     flex-wrap: wrap;
+    /*for animation*/
+    transform: translate(15px);
+    opacity: 0;
 }
 .techstack{
     background-color: #e6eaf23f;
-    padding: 16px 20px;
     margin: 10px;
     border-radius: 15px;
-    width: fit-content;
+    height: 5rem;
+    width: 5rem;
+    padding: 5px;
     text-align: center;
 }
 .techstack img{
@@ -443,7 +447,7 @@ thicc{
         transform: scale(3);
     }
     .smallcircle{
-        transform: scale(3);
+        transform: scale(4);
     }
     .emphasis{
         font-size: 2.2rem;

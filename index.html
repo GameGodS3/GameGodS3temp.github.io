@@ -99,28 +99,35 @@
         document.querySelector('.contact-sidebar').id = 'ascend';
     }
 
+    var screenheight = this.screen.height;
+    
     //About elements
     const about_container = document.querySelector('#about-me');
     const emphasis = document.querySelector('.emphasis');
     const circles = document.querySelectorAll('.circle');
+    const techstack = document.querySelector('.techstack-container');
 
     //Scroll to top
     var scrlltopbtn = document.getElementsByClassName('scrolltotop')[0];
-    
+
+
+
     window.onscroll = function() {scrollFunction()};
-    var screenheight = this.screen.height;
     function scrollFunction() {
         var abouttop = parseInt(about_container.getBoundingClientRect().top);
         if(abouttop < screenheight/2){
-            scrlltopbtn.style.display = "block";
+            scrlltopbtn.style.display = "block"; //For scrollup button
             scrlltopbtn.style.opacity = (-1*abouttop)/50;
-            emphasis.classList.add('settle');
-            circles.forEach(element => {
+            emphasis.classList.add('settle');//about text
+            circles.forEach(element => {//decorational circles
                 element.id = 'ascend';
             });
         }
         else{
             scrlltopbtn.style.display = "none";
+        }
+        if (techstack.getBoundingClientRect().top < screenheight*.75) {
+            techstack.classList.add('settle');
         }
     }
 </script>
