@@ -321,7 +321,6 @@ body{
 /*About Section*/
 
 #about-me{
-    height: 100vh;
     display: flex;
     justify-content: center;
     position: relative;
@@ -394,6 +393,7 @@ thicc{
 /*Tech Stack*/
 .techstack-container{
     display: flex;
+    flex-wrap: wrap;
 }
 .techstack{
     background-color: #e6eaf23f;
