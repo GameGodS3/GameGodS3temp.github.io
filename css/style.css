@@ -515,7 +515,7 @@ thicc{
 }
 
 /** For mobile devices **/
-@media (max-width: 767px) {
+@media (max-width: 769px) {
     .custom-shape-divider-bottom-1609432401 svg {
         width: calc(100% + 1.3px);
         height: 95px;
