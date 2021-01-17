@@ -6,6 +6,9 @@
     scroll-behavior: smooth;
     overflow-x: hidden;
 }
+html{
+    overflow-y: hidden;
+}
 /*Custom scrollbar*/
 ::-webkit-scrollbar{
     width: 10px;
@@ -68,6 +71,59 @@
     animation: settle .5s forwards;
 }
 
+/*Loading animation*/
+@keyframes load-shell{
+    0%{
+        transform: rotate(45deg);
+    }
+    50%{
+        transform: rotate(225deg);
+    }
+    100%{
+        transform: rotate(405deg);
+    }
+}
+@keyframes load-bar{
+    0%{
+        transform: scale(0);
+    }
+    50%{
+        transform: scale(1);
+    }
+    100%{transform: scale(0);
+    }
+}
+
+.loading-container{
+    position: absolute;
+    z-index: 100;
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.loading{
+    display: block;
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    border: 5px solid var(--sec);
+    animation: load-shell infinite 2s;
+}
+.loadingbar{
+    display: block;
+    width: 60px;
+    height: 60px;
+    opacity: .4;
+    backdrop-filter: blur(10px);
+    background-color: var(--sec);
+    animation: load-bar infinite 2s;
+}
+
+
 /*Hover Classes reserved for non-touch devices*/
 @media (hover:hover) and (pointer: fine){
     .dp:hover{
@@ -121,19 +177,15 @@ body{
     display: none;
 }
 .contact-sidebar{
-    display: flex;
-    position: fixed;
-    bottom: 10%;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    /*for animation*/
     margin-top: 20px;
     opacity: 0;
 }
 .social-icons-container{
     display: flex;
-    margin-left: 80px;
+    position: fixed;
+    opacity: .8;
+    left: 5vw;
+    bottom: 10vh;
     flex-direction: column;
     width: fit-content;
     filter: invert(94%) sepia(29%) saturate(344%) hue-rotate(177deg) brightness(95%) contrast(100%);
@@ -150,12 +202,15 @@ body{
 }
 
 .email{
+    position: fixed;
+    opacity: .8;
+    right: -.5vw;
+    bottom: 25vh;
     border-radius: 100px;
+    position: fixed;
     color: var(--sec);
     font-weight: lighter;
     font-size: 14px;
-    opacity: .8;
-    padding: 5px 8px;
     transform: rotate(90deg);
 }
 
@@ -326,7 +381,6 @@ body{
     position: relative;
     color: var(--sec);
     padding: 5% 15%;
-    z-index: -1;
 }
 
 .circle{
@@ -394,9 +448,6 @@ thicc{
 .techstack-container{
     display: flex;
     flex-wrap: wrap;
-    /*for animation*/
-    transform: translate(15px);
-    opacity: 0;
 }
 .techstack{
     background-color: #e6eaf23f;
@@ -406,6 +457,9 @@ thicc{
     width: 5rem;
     padding: 5px;
     text-align: center;
+    /*for animation*/
+    opacity: 0;
+    transform: translate(15px);
 }
 .techstack img{
     max-width: 3rem;
@@ -417,6 +471,48 @@ thicc{
     color: var(--sec);
 }
 
+/*Projects*/
+.projects{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.gitcard{
+    cursor: pointer;
+    width: 45%;
+    display: flex;
+    align-items: center;
+    background-color: #1533335d;
+    padding: 5px 20px;
+    border-radius: 15px;
+    box-shadow: #00000062 5px 5px 50px;
+
+    /*for animation*/
+    opacity: 0;
+    transform: translate(15px);
+}
+
+
+.projtitle{
+    font-weight: bold;
+    line-height: 1.5rem;
+    color:var(--sec);
+}
+.projdesc{
+    font-weight: lighter;
+    font-size: .9rem;
+    opacity: .7;
+}
+.projimg{
+    margin-left: auto;
+}
+.projimg img{
+    max-width: 5rem;
+    border-radius: 5px;
+}
 
 /** For mobile devices **/
 @media (max-width: 767px) {
@@ -449,7 +545,15 @@ thicc{
     .smallcircle{
         transform: scale(4);
     }
+    #about-me{
+        padding: 5% 5%;
+    }
     .emphasis{
         font-size: 2.2rem;
+    }
+
+    .gitcard{
+        width: 100%;
+        margin: 5px 0;
     }
 }

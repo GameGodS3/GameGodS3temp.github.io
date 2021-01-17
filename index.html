@@ -10,20 +10,12 @@
     <script src="js/app.js"></script>
 </head>
 <body>
-    <div class="page-base">
-        <div class="contact-sidebar">
-            <div class="social-icons-container">
-                <div class="social-icon"><a href="https://github.com/gamegods3"><img src="./images/github.svg" alt="GitHub"></a></div>
-                <div class="social-icon"><a href="https://linkedin.com/in/sudevssuresh"><img src="./images/linkedin.svg" alt="LinkedIn"></a></div>
-                <div class="social-icon"><a href="https://twitter.com/sudevssuresh"><img src="./images/twitter.svg" alt="Twitter"></a></div>
-                <div class="social-icon"><a href="https://instagram.com/card.shark.11"><img src="./images/instagram.svg" alt="Instagram"></a></div>
-            </div>
-            <a href="mailto:sudevssuresh@gmail.com" style="text-decoration: none;">
-                <div class="email">
-                    sudevssuresh@gmail.com
-                </div>
-            </a>
+    <div class="loading-container">
+        <div class="loading">
+            <div class="loadingbar"></div>
         </div>
+    </div>
+    <div class="page-base">
        
         <div id="landing">
             <div class="card">
@@ -85,15 +77,61 @@
                         <div class="techstack-text">Django</div>
                     </div>
                 </div>
+                <h4 class="about-title">My Projects</h4>
+                <div class="projects">
+                    <div class="gitcard" title="https://github.com/GameGodS3/Droptune">
+                        <div>
+                            <h2 class="projtitle">DropTune</h2>
+                            <h3 class="projdesc">Choose songs from one device, listen on any device in the network</h3>
+                        </div>
+                        <div class="projimg">
+                            <img src="./images/droptune.png" alt="">
+                        </div>
+                    </div>
+                    <div class="gitcard" title="https://github.com/GameGodS3/Powershell-Hex-Color">
+                        <div>
+                            <h2 class="projtitle">PowerShell Hex Color</h2>
+                            <h3 class="projdesc">Powershell Script to enable greater colour support in Microsoft PowerShell</h3>
+                        </div>
+                        <div class="projimg">
+                            <img src="./images/hexadjust.png" alt="">
+                        </div>
+                    </div>
+                    <div class="gitcard" title="https://github.com/GameGodS3/CETalks-website-temporary">
+                        <div>
+                            <h2 class="projtitle">CETalks Website</h2>
+                            <h3 class="projdesc">A better website for the college radio CETalks</h3>
+                        </div>
+                        <div class="projimg">
+                            <img src="./images/cetalks.png" alt="">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div> 
+    </div>
+    <div class="contact-sidebar">
+        <div class="social-icons-container">
+            <div class="social-icon"><a href="https://github.com/gamegods3"><img src="./images/github.svg" alt="GitHub"></a></div>
+            <div class="social-icon"><a href="https://linkedin.com/in/sudevssuresh"><img src="./images/linkedin.svg" alt="LinkedIn"></a></div>
+            <div class="social-icon"><a href="https://twitter.com/sudevssuresh"><img src="./images/twitter.svg" alt="Twitter"></a></div>
+            <div class="social-icon"><a href="https://instagram.com/card.shark.11"><img src="./images/instagram.svg" alt="Instagram"></a></div>
+        </div>
+        <a href="mailto:sudevssuresh@gmail.com" style="text-decoration: none;">
+            <div class="email">
+                sudevssuresh@gmail.com
+            </div>
+        </a>
+    </div>
     <div class="scrolltotop" onclick="document.documentElement.scrollTop = 0; document.body.scrollTop=0;">
             &uarr;
     </div>
+    <div class="footer"></div>
 </body>
 <script>
     window.onload = function(){
+        document.querySelector('.loading-container').style.display = 'none';
+        document.querySelector('html').style.overflowY = 'auto';
         document.getElementsByClassName('card')[0].id = 'ascend';
         document.getElementsByClassName('cta-container')[0].id = 'softpop';
         document.querySelector('.contact-sidebar').id = 'ascend';
@@ -105,7 +143,20 @@
     const about_container = document.querySelector('#about-me');
     const emphasis = document.querySelector('.emphasis');
     const circles = document.querySelectorAll('.circle');
-    const techstack = document.querySelector('.techstack-container');
+    const techstackcontain = document.querySelector('.techstack-container');
+    const techstack = document.querySelectorAll('.techstack');
+
+    //Projects elements
+    const project_container = document.querySelector('.projects');
+    const gitcard = document.querySelectorAll('.gitcard');
+    for (let i = 0; i < gitcard.length; i++) {
+        const element = gitcard[i];
+        element.onclick = function () {
+            window.open(this.title, '_blank');
+        }
+        
+    }
+
 
     //Scroll to top
     var scrlltopbtn = document.getElementsByClassName('scrolltotop')[0];
@@ -117,7 +168,7 @@
         var abouttop = parseInt(about_container.getBoundingClientRect().top);
         if(abouttop < screenheight/2){
             scrlltopbtn.style.display = "block"; //For scrollup button
-            scrlltopbtn.style.opacity = (-1*abouttop)/50;
+            scrlltopbtn.style.opacity = (-1*abouttop)/5;
             emphasis.classList.add('settle');//about text
             circles.forEach(element => {//decorational circles
                 element.id = 'ascend';
@@ -126,9 +177,21 @@
         else{
             scrlltopbtn.style.display = "none";
         }
-        if (techstack.getBoundingClientRect().top < screenheight*.75) {
-            techstack.classList.add('settle');
+        if (techstackcontain.getBoundingClientRect().top < screenheight*.75) {
+            techstack.forEach(function (element, index) {
+                setTimeout(function(){
+                    element.classList.add('settle');
+                }, index * 50);
+            });
+        }
+        if (project_container.getBoundingClientRect().top < screenheight*.75) {
+            gitcard.forEach(function (element, index) {
+                setTimeout(function(){
+                    element.classList.add('settle');
+                }, index * 100);
+            });
         }
     }
+    
 </script>
 </html>
