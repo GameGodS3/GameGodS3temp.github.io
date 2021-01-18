@@ -144,7 +144,11 @@ html{
         background-color: #e6eaf211;
         opacity: 1;
         transition: .25s;
-
+    }
+    .gitcard:hover{
+        background-color: #112b2b5d;
+        box-shadow: #00000077 8px 8px 5px;
+        transition: all .25s;
     }
 
 }
@@ -494,7 +498,11 @@ thicc{
     opacity: 0;
     transform: translate(15px);
 }
-
+.gitcard:active{
+    background-color: #0d23235d;
+    box-shadow: #00000062 1px 1px 5px;
+    transition: all .1s;
+}
 
 .projtitle{
     font-weight: bold;
