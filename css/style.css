@@ -588,12 +588,28 @@ thicc {
     width: calc(140% + 1.3px);
     height: 110px;
   }
-  .social-icons-container {
+
+  .contact-sidebar {
     display: none;
+  }
+  .social-icons-container {
+    position: static;
+    flex-direction: row;
+  }
+  .social-icon {
+    opacity: 0;
   }
   .email {
-    display: none;
+    position: static;
+    transform: none;
+    opacity: 0;
   }
+  .contact-mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .card {
     height: 50%;
     width: 80%;
@@ -616,8 +632,11 @@ thicc {
     font-size: 2.2rem;
   }
 
+  .projects {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 24px;
+  }
   .gitcard {
-    width: 100%;
-    margin: 5px 0;
+    max-width: 100%;
   }
 }

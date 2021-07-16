@@ -374,6 +374,23 @@
     const club_container = document.querySelector(".club-list");
     const clubs = document.querySelectorAll(".club-list li");
 
+    // Contact links
+    const contact_sidebar = document.querySelector(".contact-sidebar");
+    const social_icon = document.querySelectorAll(".social-icon");
+
+    if (this.screen.width < 769) {
+      document
+        .querySelector("#landing")
+        .insertAdjacentElement("beforeend", contact_sidebar);
+      document.querySelector("#landing .contact-sidebar").className =
+        "contact-mobile";
+      social_icon.forEach((element, index) => {
+        setTimeout(() => {
+          element.classList.add("settle");
+        }, index * 100);
+      });
+      document.querySelector(".email").classList.add("settle");
+    }
     //Scroll to top
     var scrlltopbtn = document.getElementsByClassName("scrolltotop")[0];
 
